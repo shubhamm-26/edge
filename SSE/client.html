@@ -7,18 +7,25 @@
   <title>SSE Client</title>
 </head>
 <body>
+  <h1>Server-Sent Events (SSE) Client</h1>
   <div id="sse-data"></div>
 
   <script>
     const sseDataElement = document.getElementById('sse-data');
 
     // Create a new EventSource to receive SSE updates from the server
-    const eventSource = new EventSource('/');
+    const eventSource = new EventSource('/stream'); // Connect to the /stream route
 
     // Handle incoming SSE messages
     eventSource.onmessage = function(event) {
       const data = JSON.parse(event.data);
-      sseDataElement.innerHTML += `<div>${data.time}</div>`;
+      if (data.message) {
+        // Display the welcome message
+        sseDataElement.innerHTML += `<div>${data.message}</div>`;
+      } else {
+        // Display the time data
+        sseDataElement.innerHTML += `<div>${data.time}</div>`;
+      }
     };
 
     // Handle errors

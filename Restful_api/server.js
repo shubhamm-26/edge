@@ -1,8 +1,10 @@
 // server.js
 const express = require('express');
+const cors = require('cors');
 
 // Create an Express application
 const app = express();
+app.use(cors());
 
 // Middleware to parse JSON bodies
 app.use(express.json());

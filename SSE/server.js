@@ -1,11 +1,12 @@
 // server.js
 const http = require('http');
 const express = require('express');
+const path = require('path'); // Import path module
 const app = express();
 
 // open client.html with express
 app.get('/web', (req, res) => {
-        res.sendFile('client.html', { root: __dirname });
+    res.sendFile(path.join(__dirname, 'client.html')); // Specify the correct path to client.html
 });
 
 // Function to generate SSE data format

@@ -75,7 +75,7 @@
   <script>
     async function fetchMessages() {
       try {
-        const response = await fetch('/messages');
+        const response = await fetch('http://localhost:3000/messages');
         if (!response.ok) {
           throw new Error('Failed to fetch messages');
         }
@@ -93,7 +93,7 @@
         const text = messageInput.value;
         messageInput.value = '';
 
-        const response = await fetch('/messages', {
+        const response = await fetch('http://localhost:3000/', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'

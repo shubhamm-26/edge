@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@grpc/grpc-js": "^1.10.1",
+    "grpc-tools": "^1.12.4"
+  }
+}
